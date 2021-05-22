@@ -5,5 +5,16 @@
 <!-- YOUR CONTENT IS FROM HERE -->
 {% block content %}
 <!-- PUT YOUR CONTENT HERE -->
+
 <h1>put your content here</h1>
+
+<!-- Showing the current date -->
+<h2> 
+    <b>Date:</b> <span id ="date"></span>
+</h2> 
+    <script>
+        var dt = new Date();
+        document.getElementById("date").innerHTML = dt.toLocaleDateString();
+    </script>	
+
 {% endblock %}
