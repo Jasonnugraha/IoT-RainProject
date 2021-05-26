@@ -5,5 +5,23 @@
 <!-- YOUR CONTENT IS FROM HERE -->
 {% block content %}
 <!-- PUT YOUR CONTENT HERE -->
-<h1>put your content here</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sensor</th>
+      <th>Value</th>
+      <th>Time Stamp</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in dataToHTML %}
+    <tr>
+      <td>{{data}}</td>
+      <td>{{dataToHTML[data].value}}</td>
+      <td>{{dataToHTML[data].published_at}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
 {% endblock %}
