@@ -21,9 +21,9 @@ function loadDoc(){
             }
 
             // Data for the Temperature
-            $("#tempContent").html(snapshot.val()["temperature"].value);
+            $("#tempContent").html(snapshot.val()["temperature"].value+"°C");
             // Data for Humidity
-            $("#humidContent").html(snapshot.val()["humidity"].value);
+            $("#humidContent").html(snapshot.val()["humidity"].value+"%");
             // Data for Clothes hanging status
             if(snapshot.val()["clothesHangingStatus"].value == true){
               $("#clothesStatusContent").html("Clothes hanged");
