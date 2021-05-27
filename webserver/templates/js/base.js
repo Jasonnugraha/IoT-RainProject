@@ -37,7 +37,6 @@ $(".checkSystem").on('change', function() {
     if ($(this).is(':checked')) {
         switchStatus = $(this).is(':checked');
         $("h3").css("color","#41a329");
-        console.log(1);
         firebase.database().ref('ControlValues/').update({
           systemStatus:"online",
       });
@@ -45,9 +44,30 @@ $(".checkSystem").on('change', function() {
     else {
        switchStatus = $(this).is(':checked'); 
        $("h3").css("color","#ccc");
-       console.log(2);
        firebase.database().ref('ControlValues/').update({
         systemStatus:"offline",
     });
     }
 });
+
+//change switch value
+function switchCheck(){
+  const dbRef = firebase.database().ref();
+  dbRef.child("ControlValues").get().then((snapshot) => {
+      if (snapshot.exists()) {
+        var checkBoxes = $(".checkSystem");
+        for(item in snapshot.val())
+        {
+          if(item=="systemStatus" && snapshot.val()[item]=="online"){
+            checkBoxes.attr('Checked','Checked');
+            console.log("onl");
+          }
+          else{
+            checkBoxes.removeAttr('Checked');
+            console.log("off");
+          }
+          } 
+        }
+      })
+    }
+    switchCheck()

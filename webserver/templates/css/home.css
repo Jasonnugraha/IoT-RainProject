@@ -1,0 +1,18 @@
+
+  tr,td {
+      text-align: center!important;
+  }
+
+ input{
+     width: 50px;
+ }
+
+ .editContainer{
+     display: flex;
+     justify-content: space-between;
+ }
+
+ #editbtn,#savebtn{
+     height: 40px;
+     margin-top: 10px;
+ }
