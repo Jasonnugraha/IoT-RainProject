@@ -11,10 +11,122 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <title>{% block title %}title{% endblock %}</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="icon" href="img/a9pg4-f58cl.svg" type="image/x-icon"/>
+    <title>Home Page</title>
   </head>
 
   <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><img src="img/apraj-ohm86.svg" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home Page<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Control</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Account
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Action</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row" style="margin-top:50px;margin-bottom: 50px;">
+        <div class="col-sm-3">
+          <div class="card ">
+            <div class="card-body cardTemp">
+              <h5 class="card-title" style="font-size:30px;">Temperature</h5>
+              <p class="card-text" id="tempContent" style="font-size:30px;color: #FFE9E2;"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body cardHumid">
+              <h5 class="card-title">Humidity</h5>
+              <p class="card-text" id="humidContent"></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body cardClothesStatus">
+              <h5 class="card-title">Clothes Status</h5>
+              <p class="card-text" id="clothesStatusContent"></p>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card">
+            <div class="card-body cardRainStatus">
+              <h5 class="card-title ">Raining Status</h5>
+              <p class="card-text" id="rainStatusContent"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="table-responsive">
+      <h1>Sensor Value Display</h1>
+      <table class="table table-striped table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Value</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+
+        <tbody id="content">
+          <tr>
+            <td colspan="5" class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div></div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-database.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-analytics.js"></script>
+
+    <script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+    apiKey: "AIzaSyBqv9hkA9rHr05795J1L0XBZtSnhr1CL-c",
+    authDomain: "iot-final-project-mqtt.firebaseapp.com",
+    databaseURL: "https://iot-final-project-mqtt-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "iot-final-project-mqtt",
+    storageBucket: "iot-final-project-mqtt.appspot.com",
+    messagingSenderId: "814228783947",
+    appId: "1:814228783947:web:f886441735c745bb0f5ece",
+    measurementId: "G-68DEEFWPGX"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    </script>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -30,23 +142,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbar"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse">
-        <div class="navbar-nav">
-          <a href="/" class="nav-item nav-link" id="home">Home</a>
-          <a href="/control" class="nav-item nav-link" id="control">Control</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container">{% block content %} {% endblock %}</div>
+    <script src="js/base.js"></script>
   </body>
 </html>
