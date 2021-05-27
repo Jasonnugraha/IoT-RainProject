@@ -5,10 +5,6 @@ img{
     margin-right: 50px;
 }
 
-.navbar .navbar-nav {
-  
-}
-
 table {
     counter-reset: section;
   }
@@ -111,6 +107,8 @@ table {
      justify-content: flex-start;
     }
 
+
+    
 /* style for font */
 h5{
     font-size:30px;
