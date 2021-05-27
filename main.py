@@ -1,5 +1,4 @@
 # THE MAIN ENTRY OF THE WEBSERVER
-
 from logging import debug
 from webserver import create_app
 

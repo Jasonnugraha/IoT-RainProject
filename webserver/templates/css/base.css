@@ -1,0 +1,47 @@
+img{
+    height: 120px;
+    width: 120px;
+}
+
+table {
+    counter-reset: section;
+  }
+  
+  .count:before {
+    counter-increment: section;
+    content: counter(section);
+  }
+
+.cardTemp{
+      background-color: #FF5722;
+      box-shadow: rgb(153 153 153) 2px 2px 2px;
+      color: #ffBDA8;
+}
+
+.cardHumid{
+    background-color: #5933e2;
+    box-shadow: rgb(153 153 153) 2px 2px 2px;
+    color: #a8a9ff;
+}
+
+.cardClothesStatus{
+    background-color: #E7AA06;
+    box-shadow: rgb(153 153 153) 2px 2px 2px;
+    color: #f1d9b9;
+}
+
+.cardRainStatus{
+    background-color: #41a329;
+    box-shadow: rgb(153 153 153) 2px 2px 2px;
+    color: #97d8a0;
+}
+
+/* style for font */
+h5{
+    font-size:30px;
+}
+
+p{
+    font-size:30px;
+    color: #e2e5ff;
+}
