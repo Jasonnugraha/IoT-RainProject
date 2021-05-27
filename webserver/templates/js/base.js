@@ -27,7 +27,8 @@ function loadDoc(){
             $("#rainStatusContent").html(JSON.stringify(snapshot.val()["rainingStatus"].value));
             } 
         })
-        
       }
-
-loadDoc();
+      loadDoc();
+      var intervalId = window.setInterval(function(){
+        loadDoc();
+      }, 1000);
