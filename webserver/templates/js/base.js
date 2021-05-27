@@ -21,11 +21,25 @@ function loadDoc(){
                     i++;
             $("#content").html(content);
             }
+
+            // Data for the Temperature
             $("#tempContent").html(snapshot.val()["temperature"].value);
+            // Data for Humidity
             $("#humidContent").html(snapshot.val()["humidity"].value);
-            $("#clothesStatusContent").html(JSON.stringify(snapshot.val()["clothesHangingStatus"].value));
-            $("#rainStatusContent").html(JSON.stringify(snapshot.val()["rainingStatus"].value));
-            } 
+            // Data for Clothes hanging status
+            if(snapshot.val()["clothesHangingStatus"].value == true){
+              $("#clothesStatusContent").html("Clothes hanged");
+            } else {
+              $("#clothesStatusContent").html("No clothes hanged");
+            }
+            // Data for Raining status
+            if(snapshot.val()["rainingStatus"].value == true){
+              $("#rainStatusContent").html("Raining");
+            } else {
+              $("#rainStatusContent").html("Not Raining");
+            }
+            
+          } 
         })
       }
       loadDoc();
