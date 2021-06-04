@@ -1,2 +1,2 @@
 # IoT-RainProject
-For Monitoring purpose, using Thingsboard and Flask
+For Monitoring purpose, using Thingsboard, AWS and HTML/Javascript
